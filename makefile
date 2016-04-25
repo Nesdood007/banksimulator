@@ -4,17 +4,17 @@ CCFLAGS= -g -Wall
 exec: main.o Bank.o Customer.o Teller.o Manager.o makefile
 	$(CC) $(CCFLAGS) -o BankSim main.o Bank.o Customer.o Teller.o Manager.o
 
-main.o: main.C Bank.h
+main.o: main.C bank.h
 	$(CC) $(CCFLAGS) -c main.C
 
 Item.o: Item.C Item.h
 	$(CC) $(CCFLAGS) -c Item.C
 
-Bank.o: Bank.C Bank.h
-	$(CC) $(CCFLAGS) -c Bank.C
+Bank.o: bank.C bank.h
+	$(CC) $(CCFLAGS) -c bank.C
 
-Customer.o: Customer.C Customer.h
-	$(CC) $(CCFLAGS) -c Customer.C
+Customer.o: customer.C customer.h
+	$(CC) $(CCFLAGS) -c customer.C
 
 Teller.o: Teller.C Teller.h
 	$(CC) $(CCFLAGS) -c Teller.C
