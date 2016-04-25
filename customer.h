@@ -4,6 +4,7 @@
 
 #ifndef customer_H
 #define customer_H
+#include "item.h"
 #include <iostream>
 using namespace std;
 

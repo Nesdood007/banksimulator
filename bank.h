@@ -4,6 +4,7 @@
 #ifndef bank_H
 #define bank_H
 #include <iostream>
+#include "item.h"
 using namespace std;
 
 class Bank : public Item {

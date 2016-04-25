@@ -3,6 +3,7 @@
 
 #ifndef teller_H
 #define teller_H
+#include "item.h"
 #include <iostream>
 using namespace std;
 

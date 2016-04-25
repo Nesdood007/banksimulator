@@ -3,6 +3,7 @@
 
 #ifndef manager_H
 #define manager_H
+#include "item.h"
 #include <iostream> 
 using namespace std;
 
@@ -10,5 +11,5 @@ using namespace std;
 
 
 
-};
+
 #endif
