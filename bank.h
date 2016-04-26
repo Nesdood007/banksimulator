@@ -5,6 +5,9 @@
 #define bank_H
 #include <iostream>
 #include "item.h"
+#include <list>
+#include "customer.h" 
+using std::list;
 using namespace std;
 
 class Bank : public Item {
@@ -34,6 +37,6 @@ class Bank : public Item {
         
         //Gives the report on the Bank satisfaction score
         void report();
-}
+};
 
 #endif
