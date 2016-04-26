@@ -30,7 +30,7 @@ class Bank : public Item {
         ~Bank();
         
         //Overriding Item function "run()"
-        void run();
+        void Run();
         
         //Gets next Customer
         Customer* getNextCustomer();

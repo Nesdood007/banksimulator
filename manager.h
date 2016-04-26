@@ -10,6 +10,19 @@ using namespace std;
 
 class Manager : public Item {
 
+    enum state {office = 0, visit = 1};
+
+    public:
+
+    //overiding Item function "run()"
+    void Run();
+
+
+
+
+
+
+
 
 
 
