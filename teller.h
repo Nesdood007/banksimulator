@@ -16,4 +16,12 @@ class Teller : public Item {
 
 
 };
+
+class GoodTeller : public Teller {
+    
+};
+
+class BadTeller : public Teller {
+
+};
 #endif

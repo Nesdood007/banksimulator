@@ -15,9 +15,10 @@ class Bank : public Item {
     int badTellers;
     int goodTellers;
     int managers;
-    
-    int satisfactionScore;
+
     int customersServed;
+    int satisfactionScore;
+    
     //Queue of customers
     list<Customer*> customerList;
     
@@ -35,10 +36,12 @@ class Bank : public Item {
         void run();
         void setKey(const int&);
         
-        //Gets next Customer
+        //Gets next Customer. returns NULL if no more customers
         Customer* getNextCustomer();
         
-        //Gives the report on the Bank satisfaction score
+        //Bank satisfaction score
+        static void goodScore();
+        static void badScore();
         void report();
 };
 

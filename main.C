@@ -17,12 +17,19 @@ int main() {
 
     priority_queue<Item*, vector<Item*>, compareItem> pq;
     srand(time(0));
-    Item* Item;
+    Item* item;
     Bank bank(10, 5, 1, pq);
+    
+    //Adds bank to priority queue
+    bank.setKey(28000);
+    pq.push(bank);
+    
     while(!pq.empty()) {
-        Item = pq.top();
-        cout << Item -> getKey() << endl;
-        Item -> run();
+        cout << "TEST";
+        item = pq.top();
+        cout << item << endl;
+        cout << item -> getKey() << endl;
+        item -> run();
         pq.pop();
     }
     //give report of bank stats.

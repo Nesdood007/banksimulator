@@ -16,7 +16,7 @@ class Item{
     Item() : key(0) {}
     int getKey() {return key;}
     void setKey(const int& a) {key = a;}
-    Item(int k) : key (k) {}
+    Item(int k) : key(k) {}
     friend class compareItem;
     virtual void run() {}
     virtual ~Item(){}
