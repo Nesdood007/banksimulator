@@ -21,8 +21,8 @@ int main() {
     Bank Bank(10, 5, 1, pq);
     while(!pq.empty()) {
         Item = pq.top();
-        cout << item -> getKey() << endl;
-        item -> run();
+        cout << Item -> getKey() << endl;
+        Item -> Run();
         pq.pop();
     }
     //give report of bank stats.
