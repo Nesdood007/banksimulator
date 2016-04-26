@@ -15,7 +15,7 @@ class Item{
     public:
     Item() : key(0) {}
     int getKey() {return key;}
-    int setKey(int a) {key = a;}
+    void setKey(int a) {key = a;}
     Item(int k) : key (k) {}
     friend class compareItem;
     virtual void Run() {}

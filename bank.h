@@ -16,16 +16,18 @@ class Bank : public Item {
     int goodTellers;
     int managers;
     
-    int satisfactionScore = 0;
-    int customersServed = 0;
+    int satisfactionScore;
+    int customersServed;
     //Queue of customers
     list<Customer*> customerList;
+    
+    priority_queue<Item*, vector<Item*>, compareItem> pq;
     
     enum state {closed = 0, open = 1};
     
     public:
         //Creates and 'opens' the Bank
-        Bank(const int& bad, const int& good, const int& man, priority_queue<Item*, vector<Item*>, compareItem>* pq);
+        Bank(const int& bad, const int& good, const int& man, const priority_queue<Item*, vector<Item*>, compareItem>& p);
         Bank(const Bank&);
         ~Bank();
         
