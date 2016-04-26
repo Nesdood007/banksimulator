@@ -15,16 +15,16 @@ using namespace std;
 
 int main() {
 
-    priority_queue<item*, vector<item*>, compareItem> pq;
+    priority_queue<Item*, vector<Item*>, compareItem> pq;
     srand(time(0));
-    item* item;
-    bank bank(10, 5, 1, pq);
+    Item* Item;
+    Bank Bank(10, 5, 1, pq);
     while(!pq.empty()) {
-        item = pq.top();
+        Item = pq.top();
         cout << item -> getKey() << endl;
         item -> run();
         pq.pop();
     }
     //give report of bank stats.
     return 0;
-}, 
+} 
