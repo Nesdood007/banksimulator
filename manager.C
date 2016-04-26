@@ -3,4 +3,26 @@
 
 #include <iostream>
 #include "manager.h"
+#include "item.h"
+
 using namespace std;
+
+void manager::Run() {
+    //if the manager is in his office
+    if (state == 0) {
+
+
+
+    } //else if the manager is visiting 
+    else if (state ==1) {
+
+
+
+
+
+
+    } 
+
+
+
+}
