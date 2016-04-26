@@ -18,11 +18,11 @@ int main() {
     priority_queue<Item*, vector<Item*>, compareItem> pq;
     srand(time(0));
     Item* Item;
-    Bank Bank(10, 5, 1, pq);
+    Bank bank(10, 5, 1, pq);
     while(!pq.empty()) {
         Item = pq.top();
         cout << Item -> getKey() << endl;
-        Item -> Run();
+        Item -> run();
         pq.pop();
     }
     //give report of bank stats.

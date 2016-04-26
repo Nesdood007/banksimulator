@@ -32,7 +32,8 @@ class Bank : public Item {
         ~Bank();
         
         //Overriding Item function "run()"
-        void Run();
+        void run();
+        void setKey(const int&);
         
         //Gets next Customer
         Customer* getNextCustomer();

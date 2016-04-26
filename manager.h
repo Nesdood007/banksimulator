@@ -10,7 +10,8 @@ using namespace std;
 
 class Manager : public Item {
 
-    enum state {office = 0, visit = 1};
+    enum State {office = 0, visit = 1};
+    State state;
 
     public:
 

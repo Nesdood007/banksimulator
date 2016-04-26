@@ -7,21 +7,22 @@
 
 using namespace std;
 
-void manager::Run() {
+void Manager::Run() {
     //if the manager is in his office
     if (state == 0) {
 
 
 
     } //else if the manager is visiting 
-    else if (state ==1) {
+    else if (state == 1) {
 
 
 
 
 
 
-    } 
+    } else {
+    }
 
 
 

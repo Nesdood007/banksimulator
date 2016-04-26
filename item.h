@@ -15,10 +15,10 @@ class Item{
     public:
     Item() : key(0) {}
     int getKey() {return key;}
-    void setKey(int a) {key = a;}
+    void setKey(const int& a) {key = a;}
     Item(int k) : key (k) {}
     friend class compareItem;
-    virtual void Run() {}
+    virtual void run() {}
     virtual ~Item(){}
 };
 
