@@ -6,11 +6,19 @@
 #define customer_H
 #include "item.h"
 #include <iostream>
+#include <list>
 using namespace std;
 
-//will be the header file for customer
+class Customer : public Item {
 
 
 
 
+
+
+
+
+
+
+};
 #endif
