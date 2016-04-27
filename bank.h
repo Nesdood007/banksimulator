@@ -20,7 +20,7 @@ class Bank : public Item {
     int satisfactionScore;
     
     //Queue of customers
-    list<Customer*> customerList;
+    static list<Customer*> customerList;
     
     priority_queue<Item*, vector<Item*>, compareItem>* pq;
     
@@ -38,13 +38,14 @@ class Bank : public Item {
         //void setKey(const int&);
         
         //Gets next Customer. returns NULL if no more customers
-        Customer* getNextCustomer();
+        static Customer* getNextCustomer();
 
-        
-        
         //Bank satisfaction score
         static void goodScore();
         static void badScore();
+        
+        //Customers get in line
+        static void putInLine(Customer&);
         //return the score of the bank
         int report();
 };

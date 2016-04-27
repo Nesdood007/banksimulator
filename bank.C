@@ -64,7 +64,7 @@ Bank::Bank(const Bank& ref) {
     goodTellers = ref.goodTellers;
     managers = ref.managers;
     pq = ref.pq;
-    customerList = ref.customerList;
+    //customerList = ref.customerList;
 }
 
 Bank::~Bank() {
@@ -89,6 +89,13 @@ void Bank::goodScore() {
 }
 
 void Bank::badScore() {
+}
+
+//So Customers can get in line
+void Bank::putInLine(Customer& c) {
+    Customer* temp = &c;
+    cout << "Put in Line: " << temp << endl;
+    //customerList.insert(&c);
 }
 
 int Bank::report() {
