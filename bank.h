@@ -39,11 +39,14 @@ class Bank : public Item {
         
         //Gets next Customer. returns NULL if no more customers
         Customer* getNextCustomer();
+
+        
         
         //Bank satisfaction score
         static void goodScore();
         static void badScore();
-        void report();
+        //return the score of the bank
+        int report();
 };
 
 #endif

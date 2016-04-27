@@ -74,6 +74,7 @@ void Bank::run() {
     if(state == open) {
         cout << "Bank is now Closed" << endl;
         //Make customers leave.
+        report();
     } else {
         cout << "This shouldn't happen" << endl;
     }
@@ -87,8 +88,10 @@ void Bank::goodScore() {
 void Bank::badScore() {
 }
 
-void Bank::report() {
-    cout << "OK" << endl;
+int Bank::report() {
+    cout << "Satisfaction Score: " << satisfactionScore << endl;
+    cout << "Number of customers served: " << customersServed << endl;
+    return 0;
 }
 
 
