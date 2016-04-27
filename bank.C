@@ -27,7 +27,7 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     //add things to the queue
 
     for(int i = 0; i < bad; i++) {
-	    temp = new BadTeller;
+        temp = new BadTeller;
         pq->push(temp);
     }
     
@@ -37,7 +37,8 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     }
     
     for(int i = 0; i < man; i++) {
-        //pq->push(new Manager);
+        temp = new Manager;
+        pq->push(temp);
     }
     
     srandom(time(0));
@@ -78,6 +79,10 @@ void Bank::run() {
     if(state == open) {
         cout << "Bank is now Closed" << endl;
         //Make customers leave.
+	while (customerList != empty) {
+		customerList.pop_front();
+		satisfactionScore -= 10;
+	}
         report();
     } else {
         cout << "This shouldn't happen" << endl;
