@@ -5,6 +5,7 @@
 #include "bank.h"
 #include <stdlib.h>
 #include <time.h>
+#include "teller.h"
 using namespace std;
 
 const int NUMBEROFCUSTOMERS = 10;
@@ -23,10 +24,10 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     managers = man;
     pq = &p;
     
-    //Adds things to the Priority Queue
+    //add things to the queue
+
     for(int i = 0; i < bad; i++) {
-        //TODO this might be the better way to add to the queue but it doesn't work yet.  I think we need to do teller before this will work
-        //Teller BT = new BadTeller;
+	//Teller BT;
         //pq->push(BT);
         //cout << "Teller" << BT << endl;
     }
