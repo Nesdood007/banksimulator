@@ -19,6 +19,10 @@ class Teller : public Item {
         ~Teller();
         
         virtual void run() {cout << "Shouldn't run Teller" << endl;};
+        
+        friend class GoodTeller;
+        friend class BadTeller;
+        
 };
 
 class GoodTeller : public Teller {
@@ -34,8 +38,10 @@ class GoodTeller : public Teller {
         }
     } */
     
+    priority_queue<Item*, vector<Item*>, compareItem>* pq;
+    
     public:
-        GoodTeller() : Teller() {};
+        GoodTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) : Teller() {pq = &p;};
         GoodTeller(const GoodTeller&);
         ~GoodTeller();
         
@@ -56,8 +62,10 @@ class BadTeller : public Teller {
         } 
     }*/
     
+    priority_queue<Item*, vector<Item*>, compareItem>* pq;
+    
     public:
-        BadTeller() : Teller() {};
+        BadTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) : Teller() {pq = &p;};
         BadTeller(const BadTeller&);
         ~BadTeller();
         

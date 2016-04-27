@@ -2,6 +2,9 @@
 //Brady O'Leary and Amy Vinson
 
 #include "teller.h"
+#include <iostream>
+#include "customer.h"
+#include "bank.h"
 
 //Will have thing from Teller, GoodTeller, and BadTeller
 
@@ -19,6 +22,10 @@ Teller::~Teller() {
 }
 
 //Good Teller Class
+/*GoodTeller::GoodTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) {
+    pq = &p;
+}*/
+
 GoodTeller::GoodTeller(const GoodTeller& ref) {
     
 }
@@ -28,12 +35,20 @@ GoodTeller::~GoodTeller() {
 }
 
 void GoodTeller::run() {
+    Customer* curr;
     cout << "GoodTeller Ran" << endl;
     
     if (state == idle) {
         //Take in Customer
-    
+        //curr = Bank::getNextCustomer();
+        if(curr != NULL) {
+            //add to priority queue
+            //change state to busy
+        } else {
+            //if not taken a break for 3600s, change state to rest for 300s. else go idle for 30s
+        }
     } else if (state == rest) {
+        
         //Go Idle
     } else {
         //busy state, release customer and do Bank Satisfaction Score
@@ -42,6 +57,10 @@ void GoodTeller::run() {
 }
 
 //Bad Teller Class
+/*BadTeller::BadTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) {
+    pq = &p;
+}*/
+
 BadTeller::BadTeller(const BadTeller&) {
     
 }
