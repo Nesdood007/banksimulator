@@ -86,10 +86,11 @@ void Bank::run() {
 
 //For Bank Score
 void Bank::goodScore() {
-
+   satisfactionScore += 10; 
 }
 
 void Bank::badScore() {
+  satisfactionScore -= 10; 
 }
 
 //So Customers can get in line

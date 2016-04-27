@@ -17,7 +17,7 @@ class Bank : public Item {
     int managers;
 
     int customersServed;
-    int satisfactionScore;
+    //int satisfactionScore;
     
     //Queue of customers
     static list<Customer*> customerList;
@@ -41,8 +41,9 @@ class Bank : public Item {
         static Customer* getNextCustomer();
 
         //Bank satisfaction score
-        static void goodScore();
-        static void badScore();
+        void goodScore();
+        void badScore();
+	int satisfactionScore;
         
         //Customers get in line
         static void putInLine(Customer&);
