@@ -10,9 +10,15 @@ using namespace std;
 
 //Will contain headers of Teller, GoodTeller, and BadTeller
 class Teller : public Item {
-   public:
-    enum state {idle = 0, rest = -1, busy = 1};
-
+    enum State {idle = 0, rest = -1, busy = 1};
+    State state;
+    
+    public:
+        Teller();
+        Teller(const Teller&);
+        ~Teller();
+        
+        virtual void run() {cout << "Shouldn't run Teller" << endl;};
 };
 
 class GoodTeller : public Teller {
@@ -26,8 +32,15 @@ class GoodTeller : public Teller {
         } else if (GT->state = 1) {
 
         }
-    } */ 
+    } */
     
+    public:
+        GoodTeller() : Teller() {};
+        GoodTeller(const GoodTeller&);
+        ~GoodTeller();
+        
+        //Overridden function
+        void run();
 };
 
 class BadTeller : public Teller {
@@ -42,5 +55,13 @@ class BadTeller : public Teller {
 
         } 
     }*/
+    
+    public:
+        BadTeller() : Teller() {};
+        BadTeller(const BadTeller&);
+        ~BadTeller();
+        
+        //Overridden Function
+        void run();
 };
 #endif

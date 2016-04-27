@@ -28,7 +28,7 @@ int main() {
     
     while(!pq.empty()) {
         item = pq.top();
-        cout << item << endl;
+        //cout << item << endl;
         cout << item -> getKey() << endl;
         item -> run();
         pq.pop();

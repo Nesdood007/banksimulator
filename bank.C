@@ -15,7 +15,7 @@ const int CLOSINGTIME = 28000;
 
 //Creates and opens teh bank.
 Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*, vector<Item*>, compareItem>& p) {
-    Customer* temp;
+    Item* temp;
     //Calculate the maximum amount of time between customers
     int timeBetweenCustomers = CLOSINGTIME / NUMBEROFCUSTOMERS;
 
@@ -27,13 +27,13 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     //add things to the queue
 
     for(int i = 0; i < bad; i++) {
-	//Teller BT;
-        //pq->push(BT);
-        //cout << "Teller" << BT << endl;
+	    temp = new BadTeller;
+        pq->push(temp);
     }
     
     for(int i = 0; i < good; i++) {
-        //pq->push(new BadTeller);
+        temp = new GoodTeller;
+        pq->push(temp);
     }
     
     for(int i = 0; i < man; i++) {
