@@ -29,6 +29,16 @@ GoodTeller::~GoodTeller() {
 
 void GoodTeller::run() {
     cout << "GoodTeller Ran" << endl;
+    
+    if (state == idle) {
+        //Take in Customer
+    
+    } else if (state == rest) {
+        //Go Idle
+    } else {
+        //busy state, release customer and do Bank Satisfaction Score
+    }
+    
 }
 
 //Bad Teller Class
