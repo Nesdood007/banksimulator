@@ -13,7 +13,7 @@ const int CLOSINGTIME = 28000;
 //Constructers and Destructors
 
 //Creates and opens teh bank.
-Bank::Bank(const int& bad, const int& good, const int& man, const priority_queue<Item*, vector<Item*>, compareItem>& p) {
+Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*, vector<Item*>, compareItem>& p) {
     Customer* temp;
     //Calculate the maximum amount of time between customers
     int timeBetweenCustomers = CLOSINGTIME / NUMBEROFCUSTOMERS;

@@ -29,7 +29,7 @@ class Bank : public Item {
     
     public:
         //Creates and 'opens' the Bank
-        Bank(const int& bad, const int& good, const int& man, const priority_queue<Item*, vector<Item*>, compareItem>& p);
+        Bank(const int& bad, const int& good, const int& man, priority_queue<Item*, vector<Item*>, compareItem>& p);
         Bank(const Bank&);
         ~Bank();
         
