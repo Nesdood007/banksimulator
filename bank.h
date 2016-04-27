@@ -41,9 +41,9 @@ class Bank : public Item {
         static Customer* getNextCustomer();
 
         //Bank satisfaction score
-        void goodScore();
-        void badScore();
-	int satisfactionScore;
+        static void goodScore();
+        static void badScore();
+	static int satisfactionScore;
         
         //Customers get in line
         static void putInLine(Customer&);
