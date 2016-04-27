@@ -19,6 +19,8 @@ class Item{
     void setKey(const int& a) {key = a;}
     Item(int k) : key(k) {}
     friend class compareItem;
+    friend class GoodTeller;
+    friend class BadTeller;
     virtual void run() {cout << "Ran Item. NOT OK" << endl;}
     virtual ~Item(){}
 };

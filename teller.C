@@ -41,8 +41,13 @@ void GoodTeller::run() {
     if (state == idle) {
         //Take in Customer
         //curr = Bank::getNextCustomer();
+        curr = new Customer;
+        cout << "USING DUMMY CUSTOMER" << endl;
+        
         if(curr != NULL) {
-            //add to priority queue
+            state = busy;
+            key += curr->getTransactionTime();
+            //pq->push(this);
             //change state to busy
         } else {
             //if not taken a break for 3600s, change state to rest for 300s. else go idle for 30s
