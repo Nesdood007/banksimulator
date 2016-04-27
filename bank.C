@@ -21,7 +21,7 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     badTellers = bad;
     goodTellers = good;
     managers = man;
-    pq = p;
+    pq = &p;
     
     //Adds things to the Priority Queue
     for(int i = 0; i < bad; i++) {

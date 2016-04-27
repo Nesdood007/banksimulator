@@ -17,11 +17,9 @@ void Manager::Run() {
     else if (state == 1) {
 
 
-
-
-
-
     } else {
+
+
     }
 
 
