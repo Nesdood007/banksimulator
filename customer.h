@@ -10,15 +10,19 @@
 using namespace std;
 
 class Customer : public Item {
+    
+    int toleranceTime;
+    int transactionTime;
 
-
-
-
-
-
-
-
-
-
+    public:
+        Customer();
+        Customer(const Customer&);
+        ~Customer();
+        
+        //Gets the transaction time of the Customer.
+        int getTransactionTime();
+        
+        //Overriden function
+        void run();
 };
 #endif

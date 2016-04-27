@@ -22,10 +22,11 @@ int main() {
     
     //Adds bank to priority queue
     bank.setKey(28000);
-    pq.push(bank);
+    pq.push(&bank);
+    
+    cout << "Main Size: " << pq.size() << endl;
     
     while(!pq.empty()) {
-        cout << "TEST";
         item = pq.top();
         cout << item << endl;
         cout << item -> getKey() << endl;

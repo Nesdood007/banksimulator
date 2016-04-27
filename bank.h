@@ -22,9 +22,10 @@ class Bank : public Item {
     //Queue of customers
     list<Customer*> customerList;
     
-    priority_queue<Item*, vector<Item*>, compareItem> pq;
+    priority_queue<Item*, vector<Item*>, compareItem>* pq;
     
-    enum state {closed = 0, open = 1};
+    enum State {closed = 0, open = 1};
+    State state;
     
     public:
         //Creates and 'opens' the Bank
@@ -34,7 +35,7 @@ class Bank : public Item {
         
         //Overriding Item function "run()"
         void run();
-        void setKey(const int&);
+        //void setKey(const int&);
         
         //Gets next Customer. returns NULL if no more customers
         Customer* getNextCustomer();

@@ -3,17 +3,20 @@
 
 #include <iostream>
 #include "bank.h"
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
-const int NUMBEROFCUSTOMERS = 100;
+const int NUMBEROFCUSTOMERS = 10;
 const int CLOSINGTIME = 28000;
 
 //Constructers and Destructors
 
 //Creates and opens teh bank.
 Bank::Bank(const int& bad, const int& good, const int& man, const priority_queue<Item*, vector<Item*>, compareItem>& p) {
+    Customer* temp;
     //Calculate the maximum amount of time between customers
-    //int timeBetweenCustomers = CLOSINGTIME / NUMBEROFCUSTOMERS;
+    int timeBetweenCustomers = CLOSINGTIME / NUMBEROFCUSTOMERS;
 
     badTellers = bad;
     goodTellers = good;
@@ -33,15 +36,24 @@ Bank::Bank(const int& bad, const int& good, const int& man, const priority_queue
         //pq.push(new Manager);
     }
     
+    srandom(time(0));
+    
     //Add some Customers
+    //TODO Consider changing the way Customers are added
     for(int i = 0; i < NUMBEROFCUSTOMERS; i++) {
-        //Create Customer
+        temp = new Customer;
         //Assign Key: random between 0 and NUMBEROFCUSTOMERS
-        //pq.push(customer);
+        int time = random()%timeBetweenCustomers + (i * timeBetweenCustomers);
+        cout << "Time is: " << time << endl;
+        temp->setKey(time);
+        pq->push(temp);
     }
+    
+    cout << "PQSize: " << pq->size() << endl;
     
     satisfactionScore = 0;
     customersServed = 0;
+    state = open;
 }
 
 Bank::Bank(const Bank& ref) {
@@ -59,7 +71,12 @@ Bank::~Bank() {
 //Functions
 //Overridden from Item class
 void Bank::run() {
-    cout << "TESt" << endl;
+    if(state == open) {
+        cout << "Bank is now Closed" << endl;
+        //Make customers leave.
+    } else {
+        cout << "This shouldn't happen" << endl;
+    }
 }
 
 //For Bank Score

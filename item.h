@@ -2,23 +2,24 @@
 //Amy Vinson and Brady O'Leary
 //
 
-#ifndef _ITEM_H_
-#define _ITEM_H_
+#ifndef ITEM_H
+#define ITEM_H
 #include <iostream>
 
 #include <queue>
-#include<vector>
-#include<stdlib.h>
+#include <vector>
+#include <stdlib.h>
 using namespace std;
 class Item{
     int key;
     public:
     Item() : key(0) {}
+    Item(const int& a) {key = a;}
     int getKey() {return key;}
     void setKey(const int& a) {key = a;}
     Item(int k) : key(k) {}
     friend class compareItem;
-    virtual void run() {}
+    virtual void run() {cout << "Ran Item. NOT OK" << endl;}
     virtual ~Item(){}
 };
 
