@@ -25,15 +25,18 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     
     //Adds things to the Priority Queue
     for(int i = 0; i < bad; i++) {
-        //pq.push(new BadTeller);
+        //TODO this might be the better way to add to the queue but it doesn't work yet.  I think we need to do teller before this will work
+        //Teller BT = new BadTeller;
+        //pq->push(BT);
+        //cout << "Teller" << BT << endl;
     }
     
     for(int i = 0; i < good; i++) {
-        //pq.push(new BadTeller);
+        //pq->push(new BadTeller);
     }
     
     for(int i = 0; i < man; i++) {
-        //pq.push(new Manager);
+        //pq->push(new Manager);
     }
     
     srandom(time(0));
