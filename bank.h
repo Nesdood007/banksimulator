@@ -53,6 +53,8 @@ class Bank : public Item {
         void putInLine(Customer&);
         //return the score of the bank
         int report();
+
+        
 };
 
 #endif

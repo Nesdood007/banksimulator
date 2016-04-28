@@ -7,7 +7,7 @@
 #include "item.h"
 #include <iostream>
 #include <list>
-#include "bank.h"
+//#include "bank.h"
 using namespace std;
 
 class Customer : public Item {
@@ -23,7 +23,7 @@ class Customer : public Item {
     public:
         Customer();
         Customer(int, int);
-        //Customer(const Bank&);
+        Customer(const Bank&);
         Customer(const Customer&);
         ~Customer();
         
