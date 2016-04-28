@@ -45,7 +45,7 @@ void Customer::run() {
         state = satisfied;
         Bank::putInLine(*this);
     } else if(state == satisfied) {
-	//TODO I think you have this backwards.  IF state ==satisfied then he isn't pissed...?
+	
          cout << "Customer was not served on time. Customer is now pissed." << endl;
          state = notSatisfied;
     }
@@ -57,10 +57,4 @@ bool Customer::isSatisfied() {
     return state == satisfied;
 }
 
-/*void Customer::removeCustomers() {
-	while (!customerList.empty()) {
-		customerList.pop_front();
-		satisfactionScore -= 10;
-		cout << "customer removed" << endl;
-	}
-}*/	
+

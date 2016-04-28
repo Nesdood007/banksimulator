@@ -34,7 +34,7 @@ class Customer : public Item {
         //Overriden function
         void run();
 	
-	void removeCustomers();
+
 
 };
 #endif
