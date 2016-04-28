@@ -29,7 +29,7 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     //add things to the queue
 
     for(int i = 0; i < bad; i++) {
-	    temp = new BadTeller(*pq);
+	    temp = new BadTeller(*this);
         pq->push(temp);
     }
     
@@ -39,7 +39,7 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     }
     
     for(int i = 0; i < man; i++) {
-	temp = new Manager(*pq);
+	    //temp = new Manager(*this);
         pq->push(temp);
     }
     
@@ -101,7 +101,7 @@ void Bank::badScore() {
 void Bank::putInLine(Customer& c) {
     Customer* temp = &c;
     cout << "Put in Line: " << temp << endl;
-    //customerList.insert(&c);
+    customerList.push_back(&c);
 }
 
 int Bank::report() {
@@ -110,4 +110,13 @@ int Bank::report() {
     return 0;
 }
 
+Customer* Bank::getNextCustomer() {
+    Customer* temp;
+    if(!customerList.empty()) {
+        temp = customerList.front();
+        customerList.pop_front();
+        return temp;
+    }
+    return NULL;
+}
 

@@ -19,6 +19,8 @@ class Bank : public Item {
     int customersServed;
     //int satisfactionScore;
     
+    
+    
     //Queue of customers
     list<Customer*> customerList;
     
@@ -46,9 +48,12 @@ class Bank : public Item {
         void goodScore();
         void badScore();
 	    int satisfactionScore;
+	    
+	    //Set to true if the Manager's state is visit
+	    bool isManagerPresent;
         
         //Customers get in line
-        static void putInLine(Customer&);
+        void putInLine(Customer&);
         //return the score of the bank
         int report();
 };

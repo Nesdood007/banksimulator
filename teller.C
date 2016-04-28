@@ -39,14 +39,11 @@ void GoodTeller::run() {
     
     if (state == idle) {
         //Take in Customer
-        //curr = Bank::getNextCustomer();
-        curr = new Customer;
-        cout << "USING DUMMY CUSTOMER" << endl;
-        
+        curr = bank->getNextCustomer();
         if(curr != NULL) {
             state = busy;
             key += curr->getTransactionTime();
-            //pq->push(this);
+            bank->pq->push(this);
             //change state to busy
         } else {
             //if not taken a break for 3600s, change state to rest for 300s. else go idle for 30s
@@ -61,9 +58,9 @@ void GoodTeller::run() {
 }
 
 //Bad Teller Class
-/*BadTeller::BadTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) {
-    pq = &p;
-}*/
+BadTeller::BadTeller(Bank& b) {
+    bank = &b;
+}
 
 BadTeller::BadTeller(const BadTeller&) {
     
