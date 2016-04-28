@@ -7,10 +7,12 @@
 
 using namespace std;
 
-int Manager::getManagerState(){
+void Manager::getManagerState(){
     if (state == 1) {
         Run();
-    } else break;
+    } else {
+        return;
+    }
 }
 void Manager::Run() {
     
