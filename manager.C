@@ -15,6 +15,8 @@ void Manager::getManagerState(){
     }
 }
 void Manager::Run() {
-    
+     
 
+
+    
 }
