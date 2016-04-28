@@ -39,7 +39,7 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     }
     
     for(int i = 0; i < man; i++) {
-	    //temp = new Manager(*this);
+	    temp = new Manager(*this);
         pq->push(temp);
     }
     
@@ -48,7 +48,7 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     //Add some Customers
     //TODO Consider changing the way Customers are added
     for(int i = 0; i < NUMBEROFCUSTOMERS; i++) {
-        temp = new Customer(random()%299 + 300, random()%599 + 600);//Sets tolerance time and transaction time
+        temp = new Customer(random()%299 + 300, random()%599 + 600, customerList);//Sets tolerance time and transaction time
         //Assign Key: random between 0 and NUMBEROFCUSTOMERS
         int time = random()%timeBetweenCustomers + (i * timeBetweenCustomers);
         //cout << "Time is: " << time << endl;
@@ -61,6 +61,7 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     satisfactionScore = 0;
     customersServed = 0;
     state = open;
+    isManagerPresent = false;
 }
 
 Bank::Bank(const Bank& ref) {
@@ -94,14 +95,14 @@ void Bank::run() {
 
 //For Bank Score
 void Bank::goodScore() {
-    cout << "Good Score" << endl;
+    //cout << "Good Score" << endl;
     satisfactionScore += 10;
     customersServed++;
    
 }
 
 void Bank::badScore() {
-    cout << "Bad Score" << endl;
+    //cout << "Bad Score" << endl;
     satisfactionScore -= 10;
     customersServed++;
 }

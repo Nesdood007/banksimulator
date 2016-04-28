@@ -38,32 +38,32 @@ GoodTeller::~GoodTeller() {
 }
 
 void GoodTeller::run() {
-    cout << "GoodTeller Ran: " << this << endl;
+    cout << "GoodTeller Ran: " << endl;
     
     //Go home if after closing.
     if(key >=28000) return;
     
     if (state == idle) {
         //Take in Customer
-        cout << "Is Empty: " << bank->customerList.empty() << endl;
+        //cout << "Is Empty: " << bank->customerList.empty() << endl;
         if(!bank->customerList.empty()) {
             helpCustomer();
         } else {
             //if not taken a break for 3600s, change state to rest for 300s. else go idle for 30s
             if(lastBreak + 3600 < key) {
-                cout << "breaktime" << endl;
+                cout << "Taking a Break" << endl;
                 lastBreak = key;
                 state = rest;
                 key += 300;
                 bank->pq->push(this);
             } else {
-                cout << "waiting..." << endl;
+                cout << "waiting for next Customer" << endl;
                 key += 30;
                 bank->pq->push(this);
             }
         }
     } else if (state == rest) {
-        cout << "ToIdleFromRest" << endl;
+        cout << "Returning From Break" << endl;
         //Go Idle
         state = idle;
     } else {
@@ -79,6 +79,7 @@ void GoodTeller::run() {
                 bank->badScore();
             }
             //delete curr;
+            curr = NULL;
         } else {
             cout << "This shouldn't happen" << endl;
         }
@@ -87,26 +88,26 @@ void GoodTeller::run() {
             helpCustomer();
         } else {
             if(lastBreak + 3600 < key) {
-                cout << "breaktime" << endl;
+                cout << "taking a break" << endl;
                 lastBreak = key;
                 state = rest;
                 key += 300;
                 bank->pq->push(this);
             } else {
-                cout << "waiting..." << endl;
+                cout << "waiting for next customer" << endl;
                 key += 30;
                 bank->pq->push(this);
             }
         }
     }
     
-    cout << "Key is: " << key << endl;
+    //cout << "Key is: " << key << endl;
     
 }
 
 void GoodTeller::helpCustomer() {
     curr = bank->customerList.front();
-    cout << "Helping Customer: " << curr << endl;
+    cout << "Helping Customer: " << endl;
     state = busy;
     key += curr->getTransactionTime();
     bank->pq->push(this);
@@ -127,14 +128,14 @@ BadTeller::~BadTeller() {
 }
 
 void BadTeller::run() {
-    cout << "Bad Teller Ran" << endl;
+    cout << "Bad Teller Ran: " << endl;
     
     //Go home if after closing.
     if(key >=28000) return;
     
     if (state == idle) {
         //Take in Customer
-        cout << "Is Empty: " << bank->customerList.empty() << endl;
+        //cout << "Is Empty: " << bank->customerList.empty() << endl;
         if(!bank->customerList.empty()) {
             //Do random case where BadTeller waits to help the customer
             if(random()%2 == 0) {
@@ -148,18 +149,19 @@ void BadTeller::run() {
         } else {
             //if not taken a break for 3600s, change state to rest for 300s. else go idle for 30s
             if(!bank->isManagerPresent) {
-                cout << "breaktime" << endl;
+                cout << "taking a small break for 30s" << endl;
                 lastBreak = key;
                 state = rest;
                 key += 600;
                 bank->pq->push(this);
             } else {
-                cout << "waiting..." << endl;
+                cout << "waiting for next customer" << endl;
                 key += 60;
                 bank->pq->push(this);
             }
         }
     } else if (state == rest) {
+        cout << "returning from break" << endl;
         //Go Idle
         state = idle;
         //check for customer in line
@@ -185,6 +187,7 @@ void BadTeller::run() {
                 bank->badScore();
             }
             //delete curr;
+            curr = NULL;
         } else {
             cout << "This shouldn't happen" << endl;
         }
@@ -209,7 +212,7 @@ void BadTeller::run() {
 void BadTeller::helpCustomer() {
     curr = bank->customerList.front();
     bank->customerList.pop_front();
-    cout << "Helping Customer: " << curr << endl;
+    cout << "Helping Customer: " << endl;
     state = busy;
     key += curr->getTransactionTime() * 2;
     bank->pq->push(this);

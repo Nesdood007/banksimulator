@@ -24,7 +24,7 @@ class Customer : public Item {
 
     public:
         Customer();
-        Customer(int t, int r);
+        Customer(int t, int r, list<Customer*>& l);
         Customer(list<Customer*>& l);
         Customer(const Customer& ref);
         ~Customer();

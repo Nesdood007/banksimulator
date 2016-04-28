@@ -17,10 +17,10 @@ Customer::Customer() {
     cout << "Customer Created|toleranceTime: " << toleranceTime << " Transaction Time: " << transactionTime << endl;
 }
 
-Customer::Customer(int tolerance, int transaction) {
-    //bank = &b;
+Customer::Customer(int tolerance, int transaction, list<Customer*>& l) {
     toleranceTime = tolerance;
     transactionTime = transaction;
+    line = &l;
     state = normal;
     cout << "Customer Created|toleranceTime: " << toleranceTime << " Transaction Time: " << transactionTime << endl;
 }
@@ -44,23 +44,20 @@ int Customer::getTransactionTime() {
 
 //overridden function
 void Customer::run() {
-    cout << "Customer Ran around with his hair on fire." << endl;
+    
     if(state == normal) {
-        cout << "Customer entered bank." << endl;
+        //cout << "Customer entered bank." << endl;
+        cout << "Customer Ran around with his hair on fire." << endl;
         state = satisfied;
         //cout << "Customer is: " << this << endl;
         line->push_back(this);
     } else if(state == satisfied) {
 	
-         cout << "Customer was not served on time. Customer is now pissed." << endl;
+         cout << "Customer was not served on time. Customer is now unsatisfied." << endl;
          state = notSatisfied;
     }
-    
-    
 }
 
 bool Customer::isSatisfied() {
     return state == satisfied;
 }
-
-
