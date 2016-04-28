@@ -21,6 +21,7 @@ class Item{
     friend class compareItem;
     friend class GoodTeller;
     friend class BadTeller;
+    friend class Manager;
     virtual void run() {cout << "Ran Item. NOT OK" << endl;}
     virtual ~Item(){}
 };
