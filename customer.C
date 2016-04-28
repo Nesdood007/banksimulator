@@ -18,10 +18,14 @@ Customer::Customer() {
 }
 
 Customer::Customer(int tolerance, int transaction) {
+    //bank = &b;
     toleranceTime = tolerance;
     transactionTime = transaction;
     state = normal;
     cout << "Customer Created|toleranceTime: " << toleranceTime << " Transaction Time: " << transactionTime << endl;
+}
+Customer::Customer(const Bank& b) {
+    bank = &b;
 }
 
 Customer::Customer(const Customer& ref) {
