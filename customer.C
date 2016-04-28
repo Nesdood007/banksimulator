@@ -50,7 +50,8 @@ void Customer::run() {
         cout << "Customer Ran around with his hair on fire." << endl;
         state = satisfied;
         //cout << "Customer is: " << this << endl;
-        line->push_back(this);
+        //line->push_back(this);
+
     } else if(state == satisfied) {
 	
          cout << "Customer was not served on time. Customer is now unsatisfied." << endl;
