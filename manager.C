@@ -8,6 +8,17 @@
 
 using namespace std;
 
+Manager::Manager(Bank& b) {
+    bank = &b;
+}
+Manager:Manager(const Manager& ref) {
+
+}
+Manager::~Manager() {
+    
+}
+
+
 void Manager::Run() {
     Customer* curr;
     if (state == office) {

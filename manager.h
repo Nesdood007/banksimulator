@@ -14,7 +14,10 @@ class Manager : public Item {
     State state;
 
     public:
-
+    
+    Manager(Bank&);
+    Manager(const Manager&);
+    ~Manager();
     //overiding Item function "run()"
     void Run();
 
