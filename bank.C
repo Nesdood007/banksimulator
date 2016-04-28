@@ -7,6 +7,7 @@
 #include <time.h>
 #include "teller.h"
 #include "customer.h"
+#include "manager.h"
 using namespace std;
 
 const int NUMBEROFCUSTOMERS = 10;
@@ -38,8 +39,8 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     }
     
     for(int i = 0; i < man; i++) {
-	//temp = new Manager(*pq);
-        //pq->push(temp);
+	temp = new Manager(*pq);
+        pq->push(temp);
     }
     
     srandom(time(0));
