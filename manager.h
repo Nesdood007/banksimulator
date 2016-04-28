@@ -18,7 +18,8 @@ class Manager : public Item {
     //overiding Item function "run()"
     void Run();
 
-
+    //returns the state of the manager
+    int getManagerState();
 
 
 

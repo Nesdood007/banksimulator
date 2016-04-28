@@ -7,21 +7,12 @@
 
 using namespace std;
 
+int Manager::getManagerState(){
+    if (state == 1) {
+        Run();
+    } else break;
+}
 void Manager::Run() {
-    //if the manager is in his office
-    if (state == 0) {
-
-
-
-    } //else if the manager is visiting 
-    else if (state == 1) {
-
-
-    } else {
-
-
-    }
-
-
+    
 
 }
