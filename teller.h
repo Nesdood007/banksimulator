@@ -14,6 +14,10 @@ class Teller : public Item {
     enum State {idle = 0, rest = -1, busy = 1};
     State state;
     
+    int lastBreak;
+    
+    Bank* bank;
+    
     public:
         Teller();
         Teller(const Teller&);
@@ -39,8 +43,6 @@ class GoodTeller : public Teller {
         }
     } */
     
-    Bank* bank;
-    
     public:
         //GoodTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) : Teller() {pq = &p;};
         GoodTeller(Bank&);
@@ -64,10 +66,8 @@ class BadTeller : public Teller {
         } 
     }*/
     
-    priority_queue<Item*, vector<Item*>, compareItem>* pq;
-    
     public:
-        BadTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) : Teller() {pq = &p;};
+        BadTeller(Bank&);
         BadTeller(const BadTeller&);
         ~BadTeller();
         
