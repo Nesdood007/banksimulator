@@ -19,7 +19,7 @@ class Manager : public Item {
     void Run();
 
     //returns the state of the manager
-    void  getManagerState();
+   // void  getManagerState();
 
 
 
