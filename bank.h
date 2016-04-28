@@ -6,7 +6,7 @@
 #include <iostream>
 #include "item.h"
 #include <list>
-#include "customer.h" 
+#include "customer.h"
 using std::list;
 using namespace std;
 
@@ -29,7 +29,7 @@ class Bank : public Item {
 
         //Creates and 'opens' the Bank
         Bank(const int& bad, const int& good, const int& man, priority_queue<Item*, vector<Item*>, compareItem>& p);
-        Bank(const Bank&);
+        Bank(const Bank& ref);
         ~Bank();
         
         priority_queue<Item*, vector<Item*>, compareItem>* pq;    
@@ -39,7 +39,7 @@ class Bank : public Item {
         //void setKey(const int&);
         
         //Gets next Customer. returns NULL if no more customers
-        Customer* getNextCustomer();
+        //Customer* getNextCustomer();
 
         //Bank satisfaction score
         void goodScore();
@@ -50,11 +50,10 @@ class Bank : public Item {
 	    bool isManagerPresent;
         
         //Customers get in line
-        void putInLine(Customer&);
+        //void putInLine(Customer& ref);
         //return the score of the bank
         int report();
 
         
 };
-
 #endif

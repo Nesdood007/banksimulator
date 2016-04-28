@@ -21,11 +21,11 @@ class Teller : public Item {
     Customer* curr;
     
     //Does Transaction
-    virtual void helpCustomer();
+    virtual void helpCustomer() {};
     
     public:
         Teller();
-        Teller(const Teller&);
+        Teller(const Teller& ref);
         ~Teller();
         
         virtual void run() {cout << "Shouldn't run Teller" << endl;};
@@ -53,8 +53,8 @@ class GoodTeller : public Teller {
     
     public:
         //GoodTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) : Teller() {pq = &p;};
-        GoodTeller(Bank&);
-        GoodTeller(const GoodTeller&);
+        GoodTeller(Bank& bank);
+        GoodTeller(const GoodTeller& ref);
         ~GoodTeller();
         
         //Overridden function
@@ -78,8 +78,8 @@ class BadTeller : public Teller {
     void helpCustomer();
     
     public:
-        BadTeller(Bank&);
-        BadTeller(const BadTeller&);
+        BadTeller(Bank& bank);
+        BadTeller(const BadTeller& ref);
         ~BadTeller();
         
         //Overridden Function

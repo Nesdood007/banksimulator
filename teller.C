@@ -12,6 +12,8 @@
 Teller::Teller() {
     state = idle;
     lastBreak = 0;
+    bank = NULL;
+    curr = NULL;
 }
 
 Teller::Teller(const Teller& ref) {
@@ -36,11 +38,14 @@ GoodTeller::~GoodTeller() {
 }
 
 void GoodTeller::run() {
-    cout << "GoodTeller Ran" << endl;
+    cout << "GoodTeller Ran: " << this << endl;
+    
+    //Go home if after closing.
+    if(key >=28000) return;
     
     if (state == idle) {
         //Take in Customer
-        
+        cout << "Is Empty: " << bank->customerList.empty() << endl;
         if(!bank->customerList.empty()) {
             helpCustomer();
         } else {
@@ -58,6 +63,7 @@ void GoodTeller::run() {
             }
         }
     } else if (state == rest) {
+        cout << "ToIdleFromRest" << endl;
         //Go Idle
         state = idle;
     } else {
@@ -72,7 +78,7 @@ void GoodTeller::run() {
                 cout << "unsatisfied" << endl;
                 bank->badScore();
             }
-            delete curr;
+            //delete curr;
         } else {
             cout << "This shouldn't happen" << endl;
         }
@@ -93,6 +99,8 @@ void GoodTeller::run() {
             }
         }
     }
+    
+    cout << "Key is: " << key << endl;
     
 }
 
@@ -121,10 +129,12 @@ BadTeller::~BadTeller() {
 void BadTeller::run() {
     cout << "Bad Teller Ran" << endl;
     
+    //Go home if after closing.
+    if(key >=28000) return;
+    
     if (state == idle) {
         //Take in Customer
-        //curr = bank->getNextCustomer();
-        cout << "Customer is: " << curr << endl;
+        cout << "Is Empty: " << bank->customerList.empty() << endl;
         if(!bank->customerList.empty()) {
             //Do random case where BadTeller waits to help the customer
             if(random()%2 == 0) {
@@ -174,7 +184,7 @@ void BadTeller::run() {
                 cout << "unsatisfied" << endl;
                 bank->badScore();
             }
-            delete curr;
+            //delete curr;
         } else {
             cout << "This shouldn't happen" << endl;
         }
@@ -182,7 +192,7 @@ void BadTeller::run() {
         if(key > lastBreak + 3600) {
             state = rest;
             key += 600;
-            bank->pg->push(this);
+            bank->pq->push(this);
         } else {
             if(random()%2 == 0) {
                 cout << "BadTeller is taking a small break" << endl;

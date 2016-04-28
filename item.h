@@ -22,6 +22,7 @@ class Item{
     friend class GoodTeller;
     friend class BadTeller;
     friend class Manager;
+    friend class Bank;
     virtual void run() {cout << "Ran Item. NOT OK" << endl;}
     virtual ~Item(){}
 };
@@ -34,7 +35,5 @@ struct compareItem
         return (t1->key > t2->key);
     }
 };
-
- 
 #endif
 

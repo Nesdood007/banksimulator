@@ -24,15 +24,16 @@ int main() {
     bank.setKey(28000);
     pq.push(&bank);
     
-    cout << "Main Size: " << pq.size() << endl;
+    //cout << "Main Size: " << pq.size() << endl;
     
     while(!pq.empty()) {
         item = pq.top();
         //cout << item << endl;
-        cout << item -> getKey() << endl;
+        cout << "Time: " << item -> getKey() << " : ";
         item -> run();
         pq.pop();
     }
     //give report of bank stats.
+    bank.report();
     return 0;
 } 

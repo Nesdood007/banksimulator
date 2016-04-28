@@ -7,7 +7,7 @@
 #include "item.h"
 #include <iostream>
 #include <list>
-//#include "bank.h"
+#include <stdlib.h>
 using namespace std;
 
 class Customer : public Item {
@@ -19,12 +19,14 @@ class Customer : public Item {
     enum State {normal = 0, satisfied = 1, notSatisfied = 2};
     
     State state;
+    
+    list<Customer*>* line;
 
     public:
         Customer();
-        Customer(int, int);
-        Customer(const Bank&);
-        Customer(const Customer&);
+        Customer(int t, int r);
+        Customer(list<Customer*>& l);
+        Customer(const Customer& ref);
         ~Customer();
         
         //Gets the transaction time of the Customer.
@@ -35,8 +37,5 @@ class Customer : public Item {
         
         //Overriden function
         void run();
-	
-
-
 };
 #endif

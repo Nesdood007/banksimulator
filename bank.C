@@ -48,15 +48,15 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     //Add some Customers
     //TODO Consider changing the way Customers are added
     for(int i = 0; i < NUMBEROFCUSTOMERS; i++) {
-        temp = new Customer;
+        temp = new Customer(random()%299 + 300, random()%599 + 600);//Sets tolerance time and transaction time
         //Assign Key: random between 0 and NUMBEROFCUSTOMERS
         int time = random()%timeBetweenCustomers + (i * timeBetweenCustomers);
-        cout << "Time is: " << time << endl;
+        //cout << "Time is: " << time << endl;
         temp->setKey(time);
         pq->push(temp);
     }
     
-    cout << "PQSize: " << pq->size() << endl;
+    //cout << "PQSize: " << pq->size() << endl;
     
     satisfactionScore = 0;
     customersServed = 0;
@@ -78,11 +78,15 @@ Bank::~Bank() {
 //Functions
 //Overridden from Item class
 void Bank::run() {
-    if(state == open) {
+    if(state == open && key >= CLOSINGTIME) {
         cout << "Bank is now Closed" << endl;
         //Make customers leave.
-	//removeCustomers();
-        report();
+        
+        while(!customerList.empty()) {
+            customerList.pop_front();
+            satisfactionScore -= 10;
+        }
+        
     } else {
         cout << "This shouldn't happen" << endl;
     }
@@ -90,19 +94,24 @@ void Bank::run() {
 
 //For Bank Score
 void Bank::goodScore() {
-   satisfactionScore += 10; 
+    cout << "Good Score" << endl;
+    satisfactionScore += 10;
+    customersServed++;
+   
 }
 
 void Bank::badScore() {
-  satisfactionScore -= 10; 
+    cout << "Bad Score" << endl;
+    satisfactionScore -= 10;
+    customersServed++;
 }
 
 //So Customers can get in line
-void Bank::putInLine(Customer& c) {
+/*void Bank::putInLine(Customer& c) {
     Customer* temp = &c;
     cout << "Put in Line: " << temp << endl;
     customerList.push_back(&c);
-}
+}*/
 
 int Bank::report() {
     cout << "Satisfaction Score: " << satisfactionScore << endl;
@@ -110,7 +119,7 @@ int Bank::report() {
     return 0;
 }
 
-Customer* Bank::getNextCustomer() {
+/*Customer* Bank::getNextCustomer() {
     Customer* temp;
     if(!customerList.empty()) {
         temp = customerList.front();
@@ -118,5 +127,5 @@ Customer* Bank::getNextCustomer() {
         return temp;
     }
     return NULL;
-}
+}*/
 

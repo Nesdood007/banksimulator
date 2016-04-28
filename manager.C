@@ -10,31 +10,39 @@ using namespace std;
 
 Manager::Manager(Bank& b) {
     bank = &b;
+    curr = NULL;
 }
-Manager:Manager(const Manager& ref) {
+Manager::Manager(const Manager& ref) {
 
 }
 Manager::~Manager() {
     
 }
 
-
 void Manager::run() {
-    Customer* curr;
+    
+    cout << "Manager Ran" << endl;
+    
+    //Quit if the bank is closed
+    if(key >= 28000) return;
+    
     if (state == office) {
         state = visit;
-        //cur = Bank::getNextCustomer();
-        curr = new Customer;
-        cout << "USING DUMMY CUSTOMER - MANAGER" << endl;
-
-        if (curr != NULL) {
+        if (!bank->customerList.empty()) {
+            curr = bank->customerList.front();
+            bank->customerList.pop_front();
+            cout << "Helping Customer: " << curr << endl;
             key += curr->getTransactionTime();
-            //pq->push(this);
-
+            bank->pq->push(this);
         }
+    } else {
         state = office;
-    } else return;
-
-
-    
+        if(curr != NULL) {
+            if(curr->isSatisfied()) {
+                bank->goodScore();
+            }
+        } else {
+            cout << "This shouldn't happen" << endl;
+        }
+    }
 }
