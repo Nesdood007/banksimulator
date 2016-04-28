@@ -18,6 +18,8 @@ class Teller : public Item {
     
     Bank* bank;
     
+    Customer* curr;
+    
     public:
         Teller();
         Teller(const Teller&);
