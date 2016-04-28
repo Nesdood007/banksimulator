@@ -6,6 +6,7 @@
 #include "item.h"
 #include <iostream>
 #include <list>
+#include "bank.h"
 using namespace std;
 
 //Will contain headers of Teller, GoodTeller, and BadTeller
@@ -38,10 +39,11 @@ class GoodTeller : public Teller {
         }
     } */
     
-    priority_queue<Item*, vector<Item*>, compareItem>* pq;
+    Bank* bank;
     
     public:
-        GoodTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) : Teller() {pq = &p;};
+        //GoodTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) : Teller() {pq = &p;};
+        GoodTeller(Bank&);
         GoodTeller(const GoodTeller&);
         ~GoodTeller();
         

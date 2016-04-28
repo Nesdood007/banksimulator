@@ -4,7 +4,6 @@
 #include "teller.h"
 #include <iostream>
 #include "customer.h"
-#include "bank.h"
 
 //Will have thing from Teller, GoodTeller, and BadTeller
 
@@ -22,9 +21,9 @@ Teller::~Teller() {
 }
 
 //Good Teller Class
-/*GoodTeller::GoodTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) {
-    pq = &p;
-}*/
+GoodTeller::GoodTeller(Bank& b) {
+    bank = &b;
+}
 
 GoodTeller::GoodTeller(const GoodTeller& ref) {
     

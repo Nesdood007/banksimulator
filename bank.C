@@ -33,7 +33,7 @@ Bank::Bank(const int& bad, const int& good, const int& man, priority_queue<Item*
     }
     
     for(int i = 0; i < good; i++) {
-        temp = new GoodTeller(*pq);
+        temp = new GoodTeller(*this);
         pq->push(temp);
     }
     
