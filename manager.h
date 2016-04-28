@@ -19,7 +19,7 @@ class Manager : public Item {
     Manager(const Manager&);
     ~Manager();
     //overiding Item function "run()"
-    void Run();
+    void run();
 
     //returns the state of the manager
    // void  getManagerState();

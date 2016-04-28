@@ -19,7 +19,7 @@ Manager::~Manager() {
 }
 
 
-void Manager::Run() {
+void Manager::run() {
     Customer* curr;
     if (state == office) {
         state = visit;

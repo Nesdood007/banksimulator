@@ -20,6 +20,9 @@ class Teller : public Item {
     
     Customer* curr;
     
+    //Does Transaction
+    virtual void helpCustomer();
+    
     public:
         Teller();
         Teller(const Teller&);
@@ -45,6 +48,9 @@ class GoodTeller : public Teller {
         }
     } */
     
+    //Does Transaction
+    void helpCustomer();
+    
     public:
         //GoodTeller(priority_queue<Item*, vector<Item*>, compareItem>& p) : Teller() {pq = &p;};
         GoodTeller(Bank&);
@@ -67,6 +73,9 @@ class BadTeller : public Teller {
 
         } 
     }*/
+    
+    //Does Transaction
+    void helpCustomer();
     
     public:
         BadTeller(Bank&);
