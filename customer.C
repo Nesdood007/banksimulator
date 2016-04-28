@@ -56,3 +56,11 @@ void Customer::run() {
 bool Customer::isSatisfied() {
     return state == satisfied;
 }
+
+/*void Customer::removeCustomers() {
+	while (!customerList.empty()) {
+		customerList.pop_front();
+		satisfactionScore -= 10;
+		cout << "customer removed" << endl;
+	}
+}*/	

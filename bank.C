@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "teller.h"
+#include "customer.h"
 using namespace std;
 
 const int NUMBEROFCUSTOMERS = 10;
@@ -79,11 +80,7 @@ void Bank::run() {
     if(state == open) {
         cout << "Bank is now Closed" << endl;
         //Make customers leave.
-	while (!customerList.empty()){
-		customerList.pop_front();
-		satisfactionScore -= 10;
-		cout << "customer removed" << endl;
-	}
+	//removeCustomers();
         report();
     } else {
         cout << "This shouldn't happen" << endl;
