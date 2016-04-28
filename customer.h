@@ -23,7 +23,7 @@ class Customer : public Item {
     public:
         Customer();
         Customer(int, int);
-        Customer(const Bank&);
+        //Customer(const Bank&);
         Customer(const Customer&);
         ~Customer();
         

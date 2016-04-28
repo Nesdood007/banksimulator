@@ -19,17 +19,13 @@ class Bank : public Item {
     int customersServed;
     //int satisfactionScore;
     
-    
-    
-    //Queue of customers
-    list<Customer*> customerList;
-    
-    
-    
     enum State {closed = 0, open = 1};
     State state;
     
     public:
+        //Queue of customers
+        list<Customer*> customerList;
+
         //Creates and 'opens' the Bank
         Bank(const int& bad, const int& good, const int& man, priority_queue<Item*, vector<Item*>, compareItem>& p);
         Bank(const Bank&);

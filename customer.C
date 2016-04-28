@@ -5,7 +5,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include "bank.h"
+
 using namespace std;
 
 //Constructors and Desctructors
@@ -24,9 +24,9 @@ Customer::Customer(int tolerance, int transaction) {
     state = normal;
     cout << "Customer Created|toleranceTime: " << toleranceTime << " Transaction Time: " << transactionTime << endl;
 }
-Customer::Customer(const Bank& b) {
-    bank = &b;
-}
+//Customer::Customer(const Bank& b) {
+  //  bank = &b;
+//}
 
 Customer::Customer(const Customer& ref) {
     
