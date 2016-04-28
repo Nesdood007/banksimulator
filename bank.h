@@ -16,6 +16,7 @@ class Bank : public Item {
     int goodTellers;
     int managers;
 
+    //list<Customer*> customerList;
     int customersServed;
     //int satisfactionScore;
     

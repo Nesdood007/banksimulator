@@ -5,7 +5,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-
+#include "bank.h"
 using namespace std;
 
 //Constructors and Desctructors
